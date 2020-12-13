@@ -1,0 +1,39 @@
+.Restangle{
+    display: flex;
+    background: #ffc800f2;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+}
+.cits{
+    width: 90px;
+}
+.mainBlock{
+    width: 405px;
+}
+.wrapForm{
+    /*height: 165px;*/
+    width: 145px;
+    padding: 23px;
+    background: #f2db41;
+    box-shadow: 0px 0px 2px 2px #cd8503;
+}
+.wrapForm h6{
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+.btnForm{
+    color: #ffca0d;
+    background: red;
+    border: 1px solid red;
+    width: 100%;
+    border-radius: 4px;
+}
+.desk{
+    font-size: 13px;
+}
+.input{
+    width: 100%;
+}

@@ -1,0 +1,28 @@
+/*.blockRight{*/
+/*    margin-right: auto;*/
+/*}*/
+.blockRight img{
+    width: 52px;
+    height: 30px;
+    margin-left: 15px;
+}
+.blockRight{
+    display: flex;
+    align-items: center;
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+}
+.header{
+    margin: 0;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+}
+.contact a{
+    text-decoration: none;
+    font-size: 14px;
+}

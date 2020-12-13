@@ -1,0 +1,19 @@
+.default {
+    background: transparent;
+    color: red;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+}
+
+.red {
+    background: red;
+    border: 1px solid red;
+}
+button:hover{
+    border-color:  red;
+    color: red;
+}

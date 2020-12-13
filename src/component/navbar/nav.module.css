@@ -1,0 +1,31 @@
+.dFlex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+ ul.dFlex{
+    width: 80%;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: auto;
+}
+ul.dFlex a{
+    text-decoration: none;
+    color: #000;
+    font-size: 13px;
+}
+.menu{
+    border-top: 1px solid;
+    box-shadow: 0px -2px 0px 0px #0000008a;
+    display: flex;
+    padding: 0 15px;
+    align-items: center;
+}
+.hr{
+    display: block;
+    width: 10%;
+    height: 2px;
+    background: black;
+}
