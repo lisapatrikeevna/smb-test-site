@@ -1,27 +1,33 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from "react";
-import s from "./SuperInputText.module.css";
+import s from "./Input.module.css";
 
+// тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-type SuperInputTextPropsType = DefaultInputPropsType & { 
+// здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута
+// (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
+type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё пропсы которых нет в стандартном инпуте
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: string
     spanClassName?: string
-    setError:(error:string)=>void
-    
 };
 
-const SuperInputText: React.FC<SuperInputTextPropsType> = (
-    {   
-        type, onChange, onChangeText, onKeyPress, onEnter, error, className, spanClassName,setError,
+const Input: React.FC<SuperInputTextPropsType> = (
+    {
+        type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
+        onChange, onChangeText,
+        onKeyPress, onEnter,
+        error,
+        className, spanClassName,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        setError('');
-        onChange && onChange(e); // если есть пропс onChange// то передать ему е (поскольку onChange не обязателен)
+        onChange // если есть пропс onChange
+        && onChange(e); // то передать ему е (поскольку onChange не обязателен)
+
         onChangeText && onChangeText(e.currentTarget.value);
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -33,13 +39,12 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     }
 
     const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ""}`;
-    // const finalInputClassName = `${s.errorInput} ${className}`; // need to fix with (?:) and s.superInput
-    // const finalInputClassName = `${s.errorInput} ${className ? className : ""}`; // need to fix with (?:) and ${s.superInput}
-    const finalInputClassName = !error? s.superInput +' '+ s.default : s.errorInput+' '+s.default;
+    const finalInputClassName = `${error ? s.errorInput : s.superInput}`; // need to fix with (?:) and s.superInput
+
     return (
         <>
             <input
-                type={type}
+                type={"text"}
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
                 className={finalInputClassName}
@@ -51,4 +56,4 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     );
 }
 
-export default SuperInputText;
+export default Input;

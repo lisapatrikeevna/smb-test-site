@@ -1,13 +1,11 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import loadingReducer from "./loadingReducer";
-import colorReduser from "./colorReduser";
-import requestReduser from "./requestReduser";
 import thunk from 'redux-thunk';
+import registerReduser from "./registration-reduser";
 
 let reducer = combineReducers({
-    reducer:requestReduser,
+    registration:registerReduser,
 })
-let store=createStore(reducer ,applyMiddleware(thunk));
+export const store=createStore(reducer ,applyMiddleware(thunk));
 
 export type AppStoreType = ReturnType<typeof reducer>
 // @ts-ignore

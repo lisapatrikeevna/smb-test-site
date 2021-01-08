@@ -1,13 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
-const instanse = axios.create({
-    baseURL:'https://neko-cafe-back.herokuapp.com/auth/test',
+const instans = axios.create({
+    withCredentials: true,
+    baseURL: 'https://neko-back.herokuapp.com/2.0/',
 })
-
-//https://neko-cafe-back.herokuapp.com/auth/test, body: {success: true},
-
-export const hwApi={
-    send(success= true){
-        return instanse.post("",{success})
+export const Registration = {
+    setUser(email: string, password: string){
+        return instans.post('auth/register',{email,password})
+            .then(res=>{
+                debugger
+               return  res.data
+            })
     }
 }
