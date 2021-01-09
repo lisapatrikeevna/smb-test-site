@@ -3,7 +3,7 @@ import cl from './registration.module.css';
 import {useDispatch} from "react-redux";
 import Input from "../../common/Input/Input";
 import Button from "../../common/Button/Button";
-import {registrationAC} from "../../bll/registration-reduser";
+import {registrationAC, registrationTC} from "../../bll/registration-reduser";
 
 export const Registration = () => {
     const dispatch = useDispatch()
@@ -27,19 +27,19 @@ export const Registration = () => {
     }
     const onSendHandlerPassw = (text: string) => {
         if (text.trim()) {
-            setEmail(text)
+            setPassword(text)
         }
     }
-    const onClick = (email:string, password:string) => {
+    const onClick = () => {
         debugger
-        dispatch(registrationAC(email, password))
+        dispatch(registrationTC(email, password))
     }
     return (
         <div className={cl.registration}>
             <h3>Registration</h3>
-            <Input placeholder={'email'} type={'email'} onChangeText={onSendHandlerEmail} className={'default'}/>
-            <Input placeholder={'password'} type={'password'} onChangeText={onSendHandlerPassw} className={'default'}/>
-            {/*<Button value={'send'} onClick={onClick}/>*/}
+            <Input placeholder={'email'} type={'email'} onChangeText={onSendHandlerEmail} className={'default'} value={email}/>
+            <Input placeholder={'password'} type={'password'} onChangeText={onSendHandlerPassw} className={'default'} value={password}/>
+            <Button value={'send'} onClick={onClick}/>
         </div>
     )
 }

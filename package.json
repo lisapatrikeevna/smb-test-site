@@ -2,7 +2,7 @@
   "name": "smb-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lisapatrikeevna.github.io/smbtest/",
+  "homepage": "https://lisapatrikeevna.github.io/smb-test-site/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",

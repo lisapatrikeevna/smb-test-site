@@ -1,4 +1,5 @@
 import {Dispatch} from "redux";
+import {RegistrationApi} from "./Api";
 
 
 export type  initialStateType = {
@@ -25,6 +26,17 @@ const registerReduser = (state = initialState, action: actionType): initialState
     }
 }
 export const registrationAC = (email:string,password:string)=> ({type: 'REGISTRATION',email,password} as const)
+export const registrationTC = (email:string,password:string) =>{
+    return(dispatch: Dispatch)=>{
+        // debugger
+        registrationAC(email,password)
+        RegistrationApi.setUser(email,password).then(res=>{
+            debugger
+            console.log(res.data);
+        } )
+
+
+    }}
 
 
 

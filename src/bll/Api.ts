@@ -4,7 +4,7 @@ const instans = axios.create({
     withCredentials: true,
     baseURL: 'https://neko-back.herokuapp.com/2.0/',
 })
-export const Registration = {
+export const RegistrationApi = {
     setUser(email: string, password: string){
         return instans.post('auth/register',{email,password})
             .then(res=>{
