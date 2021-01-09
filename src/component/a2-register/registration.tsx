@@ -39,7 +39,7 @@ export const Registration = () => {
             <h3>Registration</h3>
             <Input placeholder={'email'} type={'email'} onChangeText={onSendHandlerEmail} className={'default'} value={email}/>
             <Input placeholder={'password'} type={'password'} onChangeText={onSendHandlerPassw} className={'default'} value={password}/>
-            <Button value={'send'} onClick={onClick}/>
+            <Button onClick={onClick}>send</Button>
         </div>
     )
 }
