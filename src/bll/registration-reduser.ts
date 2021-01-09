@@ -33,7 +33,11 @@ export const registrationTC = (email:string,password:string) =>{
         RegistrationApi.setUser(email,password).then(res=>{
             debugger
             console.log(res.data);
-        } )
+        } ) .catch((err) => {
+            let message=err.response ? err.response.data.errorText : err.message
+            console.log(err.response ? err.response.data.errorText : err.message);
+            // dispatch(answerRequestAC(message))
+        })
 
 
     }}

@@ -11,5 +11,8 @@ export const RegistrationApi = {
                 debugger
                return  res.data
             })
+            .catch(res=>{
+                return res.error
+            })
     }
 }
